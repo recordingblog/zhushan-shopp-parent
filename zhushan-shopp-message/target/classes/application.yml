@@ -1,0 +1,29 @@
+server:
+  port: 8763
+  context-path: /message
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: zhushan-message
+  cloud:
+    config:
+      server:
+        url: http://localhost:8888
+  activemq:
+    broker-url: tcp://localhost:61616
+    in-memory: true
+    pool:
+      enabled: false
+  mail:
+    host: smtp.qq.com
+    username: 784753574@qq.com
+    password: talzgxyzmojcbdad
+    enable:  true
+    smtp:
+      auth: true
+    starttls:
+      enable: true
+      required: true
