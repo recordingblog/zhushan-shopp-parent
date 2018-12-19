@@ -3,15 +3,15 @@
 
     项目的父模块
 	
-### zhushan-shopo-eurekaserver
+### zhushan-shopp-eurekaserver
 
-    eureka server 注册中心，用于服务的注册于发现
+    eureka server 注册中心
 	
 	启动端口：8761
 	
 ### zhushan-shopp-configserver
 
-    config server 服务器，用于读取队列通道名称，读取邮件名称和邮件标题等
+    配置服务器，被多个其他模块使用，用于读取activitemq通道，读取邮件名称和邮件标题等，读取文件为当前路径下的application.yml
 	
 	启动端口：8888
 	
@@ -21,7 +21,7 @@
 	
 ### zhushan-shopp-common
 
-    zhushan-shopp-member 模块的一部分，主要功能为自定义响应内容的包装和redis的set，get功能
+    zhushan-shopp-member 模块的一部分，主要功能BaseResponse的封装和redis操作的封装
 	
 	启动端口：8762
 	
@@ -29,7 +29,7 @@
 	
 ### zhushan-shopp-message 
 
-    activitemq 邮件队列,该模块对邮件发送进行了实现
+    activitemq 邮件队列,该模块对邮件发送进行了实现，当用户注册后会通过activitemq接受邮箱号码并且通过读取配置服务器的配置进行邮件的发送
 	
 	启动端口：8763
 	
@@ -37,20 +37,14 @@
 	
 ### zhushan-shopp-member
 
-	会员模块接口
+	会员模块,增加了tokenfilter，使用令牌去调用发布的服务，令牌登录后存储在redis中，登录后会返回一个token，访问其他服务需携带token访问
 	
 # 主要功能介绍
 
-  
-###	一、注册功能
+### zhushan-shopp-web
 
-		密码的加密存储
+	会员调用模块，通过feign来调用会员模块发布的服务，新增降级策略和线程隔离
 	
-	    注册以后获取注册信息中的邮件名称，然后通过队列发送到zhushan-shopp-message模块进行注册短信的发送
-		
-###	二、登录功能
-		
-	    通过账号密码查询出用户id，通过用户id去redis中查找用户对应的令牌，有就返回使用
-		
-	    没有会重新生成一个令牌，访问接口需要通过令牌续访问，在filter中加入了token非空和有效性的校验
+	启动端口：80
+
 	
