@@ -17,7 +17,7 @@
 	
 ### zhushan-shopp-api
 
-    zhushan-shopp-api-member 和 zhushan-shopp-member 两个模块的父模块
+	zhushan-shopp-api-member和zhushan-shopp-member两个模块的父模块
 	
 ### zhushan-shopp-common
 
