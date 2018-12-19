@@ -1,0 +1,8 @@
+com:
+  zhushan:
+    msg:
+      subject: 筑汕网|筑汕网提示您，会员注册成功邮件。
+      test: 恭喜您的账户{},注册成功!www.chinazhushan.com
+    user:
+      queue:
+        name: messages_queue
