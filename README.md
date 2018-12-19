@@ -52,5 +52,25 @@
 ### zhushan-shopp-gateway
 
     网关模块,路由和token的校验
+	
+### zhushan-shopp-dashboard
+    
+	接口服务监控
+	
+	颜色说明：
+	
+	绿色：执行成功
+
+	蓝色：短路
+
+	青色：不良请求
+
+	橘黄色：超时请求
+
+	紫色：被拒绝
+
+	红色：失败
+	
+	访问方式:127.0.0.1:port/hystrix.stream 需要看哪个接口的状态，就选哪个接口
 
 	
